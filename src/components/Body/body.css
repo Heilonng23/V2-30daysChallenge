@@ -1,29 +1,55 @@
-.container1{
+.container1 {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     text-align: center;  
     justify-items: center;
-    justify-content:center;
+    justify-content: center;
     cursor: pointer;
 }
-ul{
+
+ul {
     display: inline-block;
     padding: 0;
-    margin: 0;
+    margin: 15px;
 }
-ul + ul {
-    margin-left: 100px;
+
+.vl {
+    border: 3px solid black;
+    border-radius: 20px;    
+    height: 680px;
+    position: absolute;
+    left: 37%;
+    top: 350px;
 }
-li{
+
+.vl1 {
+    border: 3px solid black;
+    border-radius: 20px;    
+    height: 680px;
+    position: absolute;
+    right: 37%;
+    top: 350px;
+}
+
+li {
     padding: 2rem;
     display: block;
     width: 300px;   
     margin: 20px; 
     padding: 10px;
     white-space: normal;
-    border: 3px solid black;
+    border: 4px solid black;
     border-radius: 20px;
     font-weight: 700;
+}
+
+.completed {
+    background: linear-gradient(black, black) padding-box,
+              linear-gradient(to right, darkblue, darkorchid) border-box;
+    border-radius: 20px;
+    color: white;
+    border: 4px solid transparent;
+    text-decoration: line-through;
 }
 
 li:hover {
@@ -31,6 +57,7 @@ li:hover {
               linear-gradient(to right, darkblue, darkorchid) border-box;
     border-radius: 20px;
     color: white;
-    border: 3px solid transparent;
+    border: 4px solid transparent;
     text-decoration: line-through;
+
 }

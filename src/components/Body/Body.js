@@ -1,46 +1,84 @@
-import React from 'react'
-import './body.css'
+import React, { useState, useEffect } from 'react';
+import './body.css';
 
- function Body () {
+function Body() {
+  // Load completedTasks from local storage when component mounts
+  const initialCompletedTasks = JSON.parse(localStorage.getItem('completedTasks')) || [];
+
+  const [completedTasks, setCompletedTasks] = useState(initialCompletedTasks);
+
+  useEffect(() => {
+    // Save completedTasks to local storage whenever it changes
+    localStorage.setItem('completedTasks', JSON.stringify(completedTasks));
+  }, [completedTasks]);
+
+  const toggleCompleted = (index) => {
+    if (completedTasks.includes(index)) {
+      setCompletedTasks(completedTasks.filter((taskIndex) => taskIndex !== index));
+    } else {
+      setCompletedTasks([...completedTasks, index]);
+    }
+  };
+
+  // Initialize hours and minutes
+  const firstDayHours = 4;
+  const firstDayMinutes = 0;
+
+  // Generate an array of objects representing each day and its time duration
+  const days = Array.from({ length: 30 }, (_, index) => {
+    // Calculate total minutes for each day based on the first day's time and increment by 2% each day
+    let totalMinutes = (firstDayHours * 60) + firstDayMinutes;
+    totalMinutes *= Math.pow(1.02, index);
+
+    // Calculate hours and minutes for the current day
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = Math.round(totalMinutes % 60);
+
+    return {
+      day: index + 1,
+      hours: hours,
+      minutes: minutes
+    };
+  });
+
+  // Divide days into three arrays for each <ul>
+  const ul1Days = days.slice(0, 10);
+  const ul2Days = days.slice(10, 20);
+  const ul3Days = days.slice(20, 30);
+
   return (
     <div className='container1'>
       <ul>
-        <li>Day 1 - 4.08 hours</li>
-        <li>Day 2 - 4.16 hours</li>
-        <li>Day 3 - 4.24 hours</li>
-        <li>Day 4 - 4.32 hours</li>
-        <li>Day 5 - 4.40 hours</li>
-        <li>Day 6 - 4.48 hours</li>
-        <li>Day 7 - 4.57 hours</li>
-        <li>Day 8 - 4.66 hours</li>
-        <li>Day 9 - 4.75 hours</li>
-        <li>Day 10 - 4.85 hours</li>
-        <li>Day 11 - 4.95 hours</li>
-        <li>Day 12 - 5.05 hours</li>
-        <li>Day 13 - 5.15 hours</li>
-        <li>Day 14 - 5.25 hours</li>
-        <li>Day 15 - 5.36 hours</li>
+        {ul1Days.map((day, index) => (
+          <li key={index}
+            onClick={() => toggleCompleted(index)}
+            className={completedTasks.includes(index) ? 'completed' : ''}>
+            Day {day.day}: {day.hours} hours, {day.minutes} minutes
+          </li>
+        ))}
       </ul>
-    
+      <div className='vl1'></div>
       <ul>
-        <li>Day 16 - 5.47 hours</li>
-        <li>Day 17 - 5.58 hours</li>
-        <li>Day 18 - 5.69 hours</li>
-        <li>Day 19 - 5.81 hours</li>
-        <li>Day 20 - 5.93 hours</li>
-        <li>Day 21 - 6.05 hours</li>
-        <li>Day 22 - 6.17 hours</li>
-        <li>Day 23 - 6.30 hours</li>
-        <li>Day 24 - 6.43 hours</li>
-        <li>Day 25 - 6.57 hours</li>
-        <li>Day 26 - 6.70 hours</li>
-        <li>Day 27 - 6.84 hours</li>
-        <li>Day 28 - 6.98 hours</li>
-        <li>Day 29 - 7.13 hours</li>
-        <li>Day 30 - 7.27 hours</li>
+        {ul2Days.map((day, index) => (
+          <li key={index + 10} // Add 10 to index to ensure unique key
+            onClick={() => toggleCompleted(index + 10)}
+            className={completedTasks.includes(index + 10) ? 'completed' : ''}>
+            Day {day.day}: {day.hours} hours, {day.minutes} minutes
+          </li>
+        ))}
+      </ul>
+      <div className='vl'></div>
+      <ul>
+        {ul3Days.map((day, index) => (
+          <li key={index + 20} // Add 20 to index to ensure unique key
+            onClick={() => toggleCompleted(index + 20)}
+            className={completedTasks.includes(index + 20) ? 'completed' : ''}>
+            Day {day.day}: {day.hours} hours, {day.minutes} minutes
+          </li>
+        ))}
       </ul>
     </div>
-  )
+  );
 }
 
 export default Body;
