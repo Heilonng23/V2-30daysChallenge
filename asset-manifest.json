@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/V2-30daysChallenge/static/css/main.240d6192.css",
+    "main.js": "/V2-30daysChallenge/static/js/main.c618d333.js",
+    "index.html": "/V2-30daysChallenge/index.html",
+    "main.240d6192.css.map": "/V2-30daysChallenge/static/css/main.240d6192.css.map",
+    "main.c618d333.js.map": "/V2-30daysChallenge/static/js/main.c618d333.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.240d6192.css",
+    "static/js/main.c618d333.js"
+  ]
+}
