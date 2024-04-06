@@ -29,12 +29,12 @@ h3 {
 .morning1 {
     justify-content: left;
     text-align: left;
-    margin-left: 400px;
+    margin-left: 140px;
 }
 
 .horizontal-list {
     display: flex;
     list-style-type: none;
     padding: 0;
-    margin-right: 400px;
+    margin-right: 100px;
 }
