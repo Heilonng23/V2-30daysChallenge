@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './header.css'; 
+import './header.css';
 
-const TypingHeader = () => {
+const Header = () => {
   const [name, setName] = useState(() => localStorage.getItem('name') || '');
   const [typedHello, setTypedHello] = useState('');
   const [typedName, setTypedName] = useState('');
@@ -48,7 +48,8 @@ const TypingHeader = () => {
       <hr className='headerhr' />
       {!startTyping && (
         <input
-          className='input1' //name changed.
+          
+          className='input1' //name changed
           type="text"
           placeholder="Enter your name"
           value={name}
@@ -61,4 +62,4 @@ const TypingHeader = () => {
   );
 };
 
-export default TypingHeader;
+export default Header;
