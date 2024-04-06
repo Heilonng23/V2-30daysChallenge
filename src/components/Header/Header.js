@@ -48,7 +48,7 @@ const TypingHeader = () => {
       <hr className='headerhr' />
       {!startTyping && (
         <input
-          className='input1' //name changed
+          className='input1' //name changed..
           type="text"
           placeholder="Enter your name"
           value={name}
