@@ -7,4 +7,9 @@ body{
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  /* background: url(Images/background.jpg) no-repeat center center fixed;  */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }

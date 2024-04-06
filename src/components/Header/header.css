@@ -1,5 +1,22 @@
 .container{
     text-align: center;
+    display: inline-block;
+}
+.name{
+    font-family: "Bungee Spice", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+h4{
+    margin: 0;
+    margin-bottom: 10px;
+    font-family: "Monaco", monospace;
+}
+.input1{
+    border: 3px solid black;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
 }
 
 .header{
@@ -9,7 +26,9 @@
     border-radius: 20px;
 }
 .headerhr{
-    border: 2px solid black;
+    border: 3px solid black;
     border-radius: 20px;
-    width: 800px;
+    width: 1300px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
