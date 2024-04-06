@@ -11,8 +11,6 @@ export const Morning = () => {
                 <li className='requirements'>Write / Revise ToDo List</li>
                 <li className='requirements'>Expose yourself to light 5- 10 mins</li>
                 <li className='requirements'>Blog Reviews</li>
-                <li className='requirements'>5 - 10 mins exercise</li>
-                <li className='requirements'>Blog Reviews</li>
               </ul>  
             </div>
         <hr className='headerhr' />
